@@ -1,0 +1,23 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class Books extends Model
+{
+    use HasFactory;
+
+    public function author(){
+        return $this->belongsTo(Author::class);
+    }
+
+    public function prestamos_(){
+        return $this->hasMany(Loan::class);
+    }
+
+    public function categorias(){
+        return $this->belongsToMany(Category::class);
+    }
+}
